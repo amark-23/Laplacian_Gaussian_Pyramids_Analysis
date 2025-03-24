@@ -7,6 +7,7 @@ This project implements **Gaussian and Laplacian Pyramids** for image decomposit
 ##  Theory
 
 
+
 ### 🔹 Sampling & Multi-Resolution Representations
 
 In digital image processing, controlling spatial resolution is essential for tasks like compression, transmission, multiscale analysis, and object recognition.
@@ -17,6 +18,32 @@ In digital image processing, controlling spatial resolution is essential for tas
 These operations form the basis of **image pyramids**, which store multiple levels of detail in a compact hierarchical structure.
 
 ---
+
+### 🔹 Gaussian Kernel 
+
+We use a parametric 5x5 kernel based on a smoothing factor $a$:
+
+$$
+w = \left[0.25 - \frac{a}{2},\ 0.25,\ a,\ 0.25,\ 0.25 - \frac{a}{2} \right]
+$$
+
+The 2D kernel is then formed via the outer product:
+
+$$
+h = w \otimes w
+$$
+
+Where:
+
+- $a$ controls the shape and spread of the kernel (similar to $\sigma$ in a traditional Gaussian)
+- The resulting kernel is **normalized** so that:
+
+$$
+\sum h = 1
+$$
+
+This method is computationally efficient and allows for flexible smoothing in both Gaussian and Laplacian pyramids.
+
 
 ### 🔹 Gaussian Pyramid
 
