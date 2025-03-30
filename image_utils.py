@@ -17,6 +17,6 @@ def get_camera_image():
 
 def entropy(image):
     """Calculate the entropy of an image."""
-    hist, _ = np.histogram(image.flatten(), bins=256, range=[0, 256], density=True)
+    hist, _ = np.histogram(image.flatten(), bins=256, density=True) #autoadjust bins
     hist = hist[hist > 0]
     return -np.sum(hist * np.log2(hist))
